@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>搜索结果-{pboot:sitetitle}</title>
+<meta name="keywords" content="{pboot:sitekeywords}">
+<meta name="description" content="{pboot:sitedescription}">
+<link rel="shortcut icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="{pboot:sitedomain}/style/css/bootstrap.min.css">
+<link rel="stylesheet" href="{pboot:sitedomain}/style/css/font-awesome.min.css">
+<link rel="stylesheet" href="{pboot:sitedomain}/style/plugins/owl-carousel/owl.carousel.min.css">
+<link rel="stylesheet" href="{pboot:sitedomain}/style/plugins/Magnific-Popup/magnific-popup.css">
+<link rel="stylesheet" href="{pboot:sitedomain}/style/css/style.css">
+<link rel="stylesheet" href="{pboot:sitedomain}/style/css/responsive.css">
+<link rel="stylesheet" href="{pboot:sitedomain}/style/css/custom.css">
+</head>
+
+<body class="baise">
+{include file=comm/head.html}
+<div class="page-title-wrap" data-bg-img="{pboot:sitedomain}/style/img/video-bg.jpg">
+  <div class="container">
+    <div class="row">
+      <div class="col"> 
+        <div class="page-title-content text-center">
+          <ul class="mb-0 list-unstyle nav">
+            <li>{pboot:position separator='>'}</li>
+          </ul>
+          <h1 class="h2">{sort:name}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<section class="pt-120 pb-150">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="blog-list-inner"> 
+          {pboot:search num=3 order=sorting  field='title|content'}
+          <div class="single-blog-inner"> 
+            <div class="post-image"> <a href="[search:link]"> <img src="[search:ico]" alt=""> </a>
+              <div class="post-date">
+                <p><span>[search:date style=m-d]</span>[search:date style=Y]</p>
+              </div>
+            </div>
+            <div class="post-content">
+              <div class="post-details">
+                <div class="post-title">
+                  <h3><a href="[search:link]">[search:title]</a></h3>
+                </div>
+                <p>[search:content drophtml=1 dropblank=1 len=50 mark=1]</p>
+                <a class='btn' href="[search:link]">Read More</a></div>
+            </div>
+          </div>
+         {/pboot:search}
+
+        </div>
+        
+        <div class="dede_pages">
+        <ul>
+        {include file=comm/page.html}
+        </ul>
+        </div>
+      </div>
+     {include file=comm/right.html}
+    </div>
+  </div>
+</section>
+{include file=comm/foot.html}
+</body>
+</html>
