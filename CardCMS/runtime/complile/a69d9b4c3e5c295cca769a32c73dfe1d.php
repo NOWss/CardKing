@@ -450,7 +450,7 @@
 					</div>
 				</div>
 				<div class="row grid">
-					{pboot:list scode=2 num=6 order=sorting}
+					'{pboot:list scode=2 num=6 order=sorting}
 					<div class="col-lg-4 col-md-6 grid-item">
 						<div class="new-box">
 							{pboot:if('[list:ico]' != '/static/images/nopic.png')}
@@ -471,7 +471,7 @@
 							</a>
 						</div>
 					</div>
-					{/pboot:list}
+					{/pboot:list}'
 					<div class="col-lg-4 bottom grid-item">
 						<div class="all">
 							{pboot:nav num=10 parent=0}

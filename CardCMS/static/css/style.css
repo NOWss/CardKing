@@ -479,8 +479,10 @@ ul.sub-menu li:hover a span {
     /* height: 700px; */
     z-index: 1;
     /* position: relative; */
-    margin-bottom: 200px;
-    margin-top: 100px;
+    /* margin-bottom: 200px; */
+    padding: 100px 0;
+    padding-bottom: 200px;
+    /* margin-top: 100px; */
 }
 
 
@@ -5271,7 +5273,7 @@ p.slill-text {
 ======================================================***/
 
 .blog_area {
-    padding: 80px 0 80px;
+    padding: 100px 0 80px;
 }
 
 .blog_area .itpro-section-title {

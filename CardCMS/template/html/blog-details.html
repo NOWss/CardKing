@@ -79,9 +79,11 @@
 											{/pboot:tags}
 										</span>
 									</div>
+									{pboot:if('{content:ico}' != '/static/images/nopic.png')}
 									<div class="img-box" style="width: 80%; height: auto;margin-top: 50px;">
 										<img src="{content:ico}" style="height: auto;">
 									</div>
+									{/pboot:if}
 									<p>{content:content}</p>
 								</div>
 								<br>
