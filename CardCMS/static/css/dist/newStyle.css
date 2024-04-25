@@ -88,6 +88,9 @@
   width: 340px;
   height: 80px;
 }
+.Card.active {
+  transition: all 1s ease-in-out;
+}
 .slider_btn {
   background: #f0d100;
   color: #000;
@@ -123,7 +126,6 @@
   z-index: 3;
 }
 .slider_right_site .right-card .card-1.active {
-  transition: all 1s ease-in-out;
   transform: rotate(0deg);
 }
 .slider_right_site .right-card .card-1.active-1 {
@@ -139,9 +141,6 @@
   left: 40px;
   z-index: 2;
 }
-.slider_right_site .right-card .card-2.active {
-  transition: all 1s ease-in-out;
-}
 .slider_right_site .right-card .card-2.active-1 {
   animation-duration: 8s;
 }
@@ -156,7 +155,6 @@
 }
 .slider_right_site .right-card .card-3.active {
   transform: rotate(0deg);
-  transition: all 1s ease-in-out;
 }
 .slider_right_site .right-card .card-3.active-1 {
   top: 190px;

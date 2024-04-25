@@ -118,7 +118,11 @@
   position: relative;
   width: 340px;
   height: 80px;
+  
 
+  &.active {
+    transition: all 1s ease-in-out;
+  }
 
 }
 
@@ -164,7 +168,6 @@
       z-index: 3;
 
       &.active {
-        transition: all 1s ease-in-out;
         transform: rotate(0deg);
       }
 
@@ -186,9 +189,7 @@
       z-index: 2;
       // transition: all 1s;
 
-      &.active {
-        transition: all 1s ease-in-out;
-      }
+      &.active {}
 
       &.active-1 {
         animation-duration: 8s;
@@ -207,7 +208,6 @@
 
       &.active {
         transform: rotate(0deg);
-        transition: all 1s ease-in-out;
       }
 
       &.active-1 {
