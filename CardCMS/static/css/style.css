@@ -48,6 +48,7 @@ Tags: consulting, finance, corporate, business, consultant, multipurpose, techno
 /*================================
  <-- itpro Header Top Menu Area Css-->
 ==================================*/
+
 .header-top-area {
     background: #14212A;
     padding: 10px 0;
@@ -7868,7 +7869,7 @@ ul.tabs-inner-list li i {
 .pagination a {
     font-size: 18px;
     font-weight: 500;
-    color: #ff3c00;
+    color: #232323;
     float: left;
     text-decoration: none;
     transition: background-color .3s;
@@ -7881,7 +7882,7 @@ ul.tabs-inner-list li i {
 }
 
 .pagination a:hover {
-    background: #ff3c00;
+    background: #232323;
     color: #fff;
 
 }
@@ -8146,8 +8147,6 @@ element.style {
 
 .blog-content {
     padding: 15px 35px 20px;
-    transition: .5s;
-    box-shadow: 0 0 15px rgb(0 0 0 / 10%);
 }
 
 .blog-thumb img {

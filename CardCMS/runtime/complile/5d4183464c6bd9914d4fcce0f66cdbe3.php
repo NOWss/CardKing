@@ -68,11 +68,11 @@
         <nav class="itpro_menu">
           <ul class="nav_scroll">
             <li><a href="{pboot:sitedomain}#home">首页</a></li>
-            <li><a href="{pboot:sitedomain}#product">付款卡特点</a></li>
-            <li><a href="{pboot:sitedomain}#service">使用场景</a></li>
+            <li><a href="{pboot:sitedomain}#service">付款卡特点</a></li>
+            <li><a href="{pboot:sitedomain}#product">使用场景</a></li>
             <li><a href="{pboot:sitedomain}#youshi">安全</a></li>
-            <li><a href="{pboot:sitedomain}#contact">我们的团队</a></li>
-            <li><a href="{pboot:sitedomain}#contact">最新资讯</a></li>
+            <li><a href="{pboot:sitedomain}#yunwei">我们的团队</a></li>
+            <li><a href="{pboot:sitedomain}#news">最新资讯</a></li>
           </ul>
         </nav>
       </div>
@@ -115,31 +115,6 @@
 		<!--==================================================-->
 		<!--Start Header Slider Section -->
 		<!--===================================================-->
-		<div class="breadcumb-area d-flex align-items-center">
-			<div class="container">
-				<div class="row d-flex align-items-center">
-					<div class="col-lg-12">
-						<div class="breadcumb-content">
-							<h1> {sort:name} </h1>
-							<ul>
-								<li><a href="/">主页</a></li>
-								<li><a href="/?article">新闻</a></li>
-								<li> {sort:name} </li>
-							</ul>
-						</div>
-					</div>
-					<div class="britcam-shape">
-						<div class="breadcumb-content upp">
-							<ul>
-								<li><a href="/">主页</a></li>
-								<li><a href="/?article">新闻</a></li>
-								<li> {sort:name} </li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 
 		<!--==================================================-->
 		<!--START BLOG  Section -->
@@ -147,7 +122,7 @@
 		<div class="blog-section style-two details">
 			<div class="container">
 				<div class="row justify-content-center">
-					<div class="col-lg-8">
+					<div class="col-lg-12">
 						<div class="blog-single-items">
 							<!-- <div class="blog-thumb">
 								<img src="static/picture/blog-4.jpg" alt="Blog img">
@@ -156,12 +131,15 @@
 								<div class="blog-content-text text-left">
 									<h5>{content:title}</h5>
 									<div class="blog-meta" style="margin: 20px 0;">
-										<span>{content:date style=Y-m-d}</span>
+										<span>{content:date style="F"}&nbsp;{content:date style="d, Y"}</span>
 										<span class="tag-item">
 											{pboot:tags id={content:id}}
 											<span href="#">[tags:text]</span>
 											{/pboot:tags}
 										</span>
+									</div>
+									<div class="img-box" style="width: 80%; height: auto;margin-top: 50px;">
+										<img src="{content:ico}" style="height: auto;">
 									</div>
 									<p>{content:content}</p>
 								</div>
@@ -173,68 +151,6 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-4 col-md-8">
-  <div class="widget-items mt-5 mt-lg-0 mb-40">
-    <form action="#" method="get" action="{pboot:scaction}">
-      <input type="text" class="src-input-box" placeholder="Search Here" name="keyword" value="" title="src-input-box">
-      <button class="src-icon" type="submit">
-        <i class="fas fa-search"></i>
-      </button>
-    </form>
-  </div>
-  <div class="widget-items mb-40" style="padding: 0px;">
-    <!-- <div class="widget-title">
-      <h2>广告</h2>
-    </div> -->
-    <div class="owl-carousel owl-theme" id="owl-demo">
-      {pboot:slide gid={sort:def3} num=5}
-      <div class="item">
-        <a href="[slide:link]"><img src="[slide:src]" style="width: 100% !important; height: auto;"></a>
-      </div>
-      {/pboot:slide}
-    </div>
-  </div>
-  <!-- <div class="widget-items mb-40">
-    <div class="widget-title">
-      <h2>关键字</h2>
-    </div>
-    <div class="tag-item">
-      {pboot:tags id={content:id}}
-      <a href="#">[tags:text]</a>
-      {/pboot:tags}
-    </div>
-  </div> -->
-  <div class="widget-items mb-40">
-    <div class="widget-title">
-      <h2>推荐新闻</h2>
-    </div>
-    <div class="catagory-item">
-      <ul>
-        {pboot:list scode=2 num=10 order=sorting}
-        <li class="hr-3">
-          <a href="[list:link]">[list:title]</a>
-        </li>
-        {/pboot:list}
-      </ul>
-    </div>
-  </div>
-
-</div>
-<script src="static/js/jquery-3.6.2.min.js"></script>
-
-<script>
-  $(function () {
-    $('.owl-carousel').owlCarousel({
-      // margin: 10,
-      loop: true,
-      // autoWidth: true,
-      items: 1,
-      autoplay: true,
-      autoplayTimeout: 3000,
-    });
-  });
-
-</script>
 				</div>
 			</div>
 		</div>
@@ -247,88 +163,29 @@
 		<!-- Start itpro Footer Middle Area -->
 		<!--==================================================-->
 		<div class="footer-middle style-two upper" id="contact">
-  <div class="container">
-    <div class="footer-bg">
-      <div class="row">
-        <div class="col-lg-4 col-sm-6">
-          <div class="widget widgets-company-info mb-4 mb-lg-0">
-            <div class="company-info-desc pr-2">
-              <h4 class="widget-title"> 联系我们 </h4>
-            </div>
-            <div class="follow-company-icon">
-              <p class="icon-content">
-                <a class="social-icon-color" href="javascript:void(0);"> <i class="bi bi-send"></i> </a>
-                <!-- <span>{pboot:companyphone}</span> -->
-              </p>
-              <p class="icon-content">
-                <a class="social-icon-color2" href="javascript:void(0);"> <i class="bi bi-envelope"></i> </a>
-                <!-- <span>{pboot:companyemail}</span> -->
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-6">
-          <div class="widget widget-nav-menu">
-            <h4 class="widget-title">导航</h4>
-            <div class="menu-quick-link-content">
-              <ul class="footer-menu">
-                <li><a href="{pboot:sitedomain}#home">主页</a></li>
-                <li><a href="{pboot:sitedomain}#product">推荐套餐</a></li>
-                <li><a href="{pboot:sitedomain}#service">适用平台</a></li>
-                <li><a href="{pboot:sitedomain}#youshi">优势</a></li>
-                {pboot:nav num=10 parent=0}
-                <li><a href="[nav:link]">[nav:name]</a></li>
-                {/pboot:nav}
-              </ul>
-            </div>
-          </div>
-        </div>
-        <!-- <div class="col-lg-3 col-6">
-							<div class="widget widget-nav-menu">
-								<h4 class="widget-title"> Services </h4>
-								<div class="menu-quick-link-content">
-									<ul class="footer-menu">
-										<li><a href="#"> Strategy & Planing </a></li>
-										<li><a href="#"> Consumer Market </a></li>
-										<li><a href="#"> Data Analysis </a></li>
-										<li><a href="#"> Corporate Finance </a></li>
-										<li><a href="#"> Market Research </a></li>
-									</ul>
-								</div>
-							</div>
-						</div> -->
-        <div class="col-lg-4 col-sm-6">
-          <div id="em-recent-post-widget" class="mt-5 mt-sm-0">
-            <div class="single-widget-item">
-              <h4 class="widget-title">注意</h4>
-              <p style="color: #fff;">Address: 10 Anson Road, #32 International Plaza, Singapore 079903。
-                Important: 仅支持美元付款，任何非美元收款的通道，可能存在诈骗风险，请注意辨别.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- <div class="foorer-shape">
-						<div class="footer-thumb">
-							<img src="static/picture/red-dot.png" alt="">
-						</div>
-						<div class="footer-thumb1 bounce-animate2">
-							<img src="static/picture/all-shape.png" alt="">
-						</div>
-					</div> -->
-    </div>
-
-  </div>
-  <div class="footer-bottom-area d-flex align-items-center">
+  <div class="footer-bottom-area d-flex align-items-center" style="height: 120px;">
     <div class="container">
       <div class="row d-flex align-items-center">
         <div class="col-md-4">
           <div class="itpro-logo">
             <a class="logo_thumb" href="/" title="itpro">
-              <img src="static/picture/logo.png" alt="logo">
+              <img src="static/picture/logo1.png" alt="logo" style="width: 50%;">
             </a>
           </div>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-4">
+          <div style="color: #fff;">
+            <div style="margin-bottom: 10px;">
+              <i class="bi bi-clock-history"></i>
+              工作时间：9:00AM - 24:00 PM
+            </div>
+            <div>
+              <i class="bi bi-send"></i>
+              Telegram客服：@cardking
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
           <div class="footer-bottom-content">
             <div class="footer-bottom-content-copy">
               <p>{pboot:sitecopyright}<a rel="nofollow">{pboot:siteicp}</a> </p>
@@ -400,10 +257,11 @@
 		<script src="static/js/theme.js"></script>
 		<!-- barfiller -->
 		<script src="static/js/jquery.barfiller.js"></script>
+		<!-- 将字体转换为繁体 -->
+		<script src="static/js/jfzh.js"></script>
 	</body>
 
 </html><?php return array (
   0 => '//LAPTOP-PIMM19LB/CARDCMS/template/html/comm/head.html',
-  1 => '//LAPTOP-PIMM19LB/CARDCMS/template/html/comm/right.html',
-  2 => '//LAPTOP-PIMM19LB/CARDCMS/template/html/comm/foot.html',
+  1 => '//LAPTOP-PIMM19LB/CARDCMS/template/html/comm/foot.html',
 ); ?>

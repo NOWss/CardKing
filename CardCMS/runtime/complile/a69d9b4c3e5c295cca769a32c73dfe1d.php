@@ -44,6 +44,7 @@
 		<script src="static/js/masonry.min.js"></script>
 		<!-- modernizr js -->
 		<script src="static/js/modernizr-3.5.0.min.js"></script>
+
 	</head>
 
 	<body>
@@ -67,11 +68,11 @@
         <nav class="itpro_menu">
           <ul class="nav_scroll">
             <li><a href="{pboot:sitedomain}#home">首页</a></li>
-            <li><a href="{pboot:sitedomain}#product">付款卡特点</a></li>
-            <li><a href="{pboot:sitedomain}#service">使用场景</a></li>
+            <li><a href="{pboot:sitedomain}#service">付款卡特点</a></li>
+            <li><a href="{pboot:sitedomain}#product">使用场景</a></li>
             <li><a href="{pboot:sitedomain}#youshi">安全</a></li>
-            <li><a href="{pboot:sitedomain}#contact">我们的团队</a></li>
-            <li><a href="{pboot:sitedomain}#contact">最新资讯</a></li>
+            <li><a href="{pboot:sitedomain}#yunwei">我们的团队</a></li>
+            <li><a href="{pboot:sitedomain}#news">最新资讯</a></li>
           </ul>
         </nav>
       </div>
@@ -186,7 +187,6 @@
 		<!--==================================================-->
 		<!--End itpro slider Area  -->
 		<!--==================================================-->
-
 
 
 		<!--==================================================-->
@@ -466,7 +466,9 @@
 									<p>[list:subtitle]</p>
 								</div>
 							</div>
-							<div class="newBtn">点击查看</div>
+							<a href="[list:link]">
+								<div class="newBtn">点击查看</div>
+							</a>
 						</div>
 					</div>
 					{/pboot:list}
@@ -485,7 +487,7 @@
 							</div>
 							{/pboot:2nav}
 							{/pboot:if}
-							{/pboot:nav}
+
 							<!-- <div class="item">
 								<div>551</div>
 								<div>资讯类</div>
@@ -495,9 +497,12 @@
 								<div>教程类</div>
 							</div> -->
 						</div>
-						<div class="newBtn">
-							查看全部
-						</div>
+						<a href="[nav:link]">
+							<div class="newBtn">
+								查看全部
+							</div>
+						</a>
+						{/pboot:nav}
 					</div>
 				</div>
 				<!-- <div class="row">
@@ -607,6 +612,8 @@
 
 
 
+		<!-- <input type="button" value="繁体" onclick="zh_tran('t');" style="z-index: 9999999; cursor: pointer;" /><br />
+		<input type="button" value="简体" onclick="zh_tran('s');" /> -->
 
 
 		<!-- jquery js -->
@@ -647,85 +654,7 @@
 		<script src="static/js/theme.js"></script>
 
 		<script src="static/js/active.js"></script>
-		<script>
-			$(function () {
-				$('.owl-carousel').owlCarousel({
-					// margin: 10,
-					loop: true,
-					// autoWidth: true,
-					items: 1,
-					autoplay: true,
-					autoplayTimeout: 3000,
-					dots: true, // 显示分页按钮
-					navigation: true // 显示上一个和下一个按钮
-				});
-
-				// 自定义按钮内容
-				$('.owl-dots').each(function () {
-					const dotsText = ['Chatgpt付费', 'PayPal支付', '社交软件增值功能/广告投放购买', 'Apple ID', '跨境购物', '跨境服务器购买']
-					var dots = $(this).find('.owl-dot');
-					dots.each(function (index) {
-						console.log(index);
-						$(this).text(dotsText[index]); // 设置按钮文本，这里假设为索引加1
-					});
-				});
-
-				var $grid = $('.grid').masonry({ itemSelector: '.grid-item' });
-
-				// 所有图片加载完成后，重新执行瀑布流脚本
-				$grid.imagesLoaded().progress(function () {
-					$grid.masonry('layout');
-				});
-
-				var $serviceLeftSites = $('.service_left_site');
-				var $serviceArea = $('#service');
-				var $sliderArea = $('#home')
-				var $Card = $('.slider_right_site .img-box')
-				var $sliderLeftSite = $('#home .slider_left_site');
-
-
-				console.log($Card);
-
-				function isInViewport(element) {
-					var rect = element[0].getBoundingClientRect();
-					return (
-						rect.top >= 0 &&
-						rect.left >= 0 &&
-						rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-						rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-					);
-				}
-
-				function handleScroll() {
-					// 判断元素是否在可视区域内
-					$serviceLeftSites.each(function (index, site) {
-						if (isInViewport($serviceArea) && !$(site).hasClass('active')) {
-							setTimeout(function () {
-								$(site).addClass('active');
-							}, index * 200); // 每个元素间隔200毫秒
-						}
-					});
-
-					$sliderLeftSite.each(function (index, site) {
-						if (isInViewport($sliderArea) && !$(site).hasClass('active')) {
-							$(site).addClass('active');
-						}
-					})
-
-					$Card.each(function (index, site) {
-						if (isInViewport($sliderArea) && !$(site).hasClass('active')) {
-							// setTimeout(() => {
-								$(site).addClass('active');
-								$(site).addClass(`bounce-animate`)
-							// }, 1000);
-						}
-					});
-
-				}
-				$(window).scroll(handleScroll);
-				handleScroll();
-			});
-		</script>
+		<script src="static/js/jfzh.js"></script>
 	</body>
 
 </html><?php return array (

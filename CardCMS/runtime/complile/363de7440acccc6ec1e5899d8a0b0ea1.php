@@ -64,11 +64,11 @@
         <nav class="itpro_menu">
           <ul class="nav_scroll">
             <li><a href="{pboot:sitedomain}#home">首页</a></li>
-            <li><a href="{pboot:sitedomain}#product">付款卡特点</a></li>
-            <li><a href="{pboot:sitedomain}#service">使用场景</a></li>
+            <li><a href="{pboot:sitedomain}#service">付款卡特点</a></li>
+            <li><a href="{pboot:sitedomain}#product">使用场景</a></li>
             <li><a href="{pboot:sitedomain}#youshi">安全</a></li>
-            <li><a href="{pboot:sitedomain}#contact">我们的团队</a></li>
-            <li><a href="{pboot:sitedomain}#contact">最新资讯</a></li>
+            <li><a href="{pboot:sitedomain}#yunwei">我们的团队</a></li>
+            <li><a href="{pboot:sitedomain}#news">最新资讯</a></li>
           </ul>
         </nav>
       </div>
@@ -105,220 +105,66 @@
 <!-- End itpro Main Menu Area -->
 <!--==================================================-->
 		<!--==================================================-->
-		<!--Start Header Slider Section -->
-		<!--===================================================-->
-		<div class="breadcumb-area d-flex align-items-center">
+		<!-- Start itpro case study Area -->
+		<!--==================================================-->
+		<div class="blog_area " id="news" style="margin: 100px 0;">
 			<div class="container">
-				<div class="row d-flex align-items-center">
-					<div class="col-lg-12">
-						<div class="breadcumb-content">
-							<h1>{sort:name}</h1>
-							<ul>
-								<li><a href="/">主页</a></li>
-								<li>{sort:name}</li>
-							</ul>
-						</div>
-					</div>
-					<div class="britcam-shape">
-						<div class="breadcumb-content upp">
-							<ul>
-								<li><a href="/">主页</a></li>
-								<li>{sort:name}</li>
-							</ul>
+				<div class="row align-items-center">
+					<div class="col-lg-12" style="margin-bottom: 30px;">
+						<div class="col-lg-12 pl-0 pr-0">
+							<div class="itpro-section-title">
+								<h2 style="font-size: 44px; text-align: center;">最新资讯</h2>
+								<div class="tabs">
+									{pboot:nav num=10 parent=0}
+									<a href="[nav:link]" class="tab-link">
+										<div class="item">
+											<div>所有文章 [nav:rows]</div>
+											<!-- <div>篇文章</div> -->
+										</div>
+									</a>
+									{pboot:if([nav:soncount]>0)}
+									{pboot:2nav parent=[nav:scode]}
+									<a href="[2nav:link]" class="tab-link">
+										<div class="item">
+											<div>[2nav:name]文章 [2nav:rows]</div>
+											<!-- <div>类 </div> -->
+										</div>
+									</a>
+									{/pboot:2nav}
+									{/pboot:if}
+									{/pboot:nav}
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-
-		<!--==================================================-->
-		<!-- Start itpro Blog Area -->
-		<!--==================================================-->
-		<div class="blog-area style-two page">
-			<div class="container">
-				<div class="row">
-					{pboot:list num=15 order=sorting}
-					<div class="col-lg-4 col-md-6">
-						<div class="single-blog-box">
-							<!-- <div class="single-blog-thumb">
-								<img src="static/picture/blog1.png" alt="">
-								<div class="blog-top-button">
-									<a href="#"> GRAPHIC </a>
-								</div>
-							</div> -->
-							<div class="em-blog-content">
-								<div class="meta-blog-text">
-									<p>[list:date style=Y-m-d]</p>
-								</div>
-								<div class="em-blog-title">
-									<h2> <a href="[list:link]">[list:title]</a> </h2>
-								</div>
-								<div class="context" style="margin-bottom: 30px;">
-									<p>[list:content drophtml=1 dropblank=1 lencn=60]</p>
-								</div>
-								<!-- <div class="em-blog-icon">
-									<div class="em-blog-thumb">
-										<img src="static/picture/blog-icon.png" alt="">
-									</div>
-									<div class="em-blog-icon-title">
-										<h6> Alex Collins </h6>
-									</div>
-								</div> -->
-								<div class="blog-button">
-									<a href="[list:link]"> Read More</a>
+				<div class="row grid">
+					{pboot:list num=10 order=sorting}
+					<div class="col-lg-4 col-md-6 grid-item">
+						<div class="new-box">
+							{pboot:if('[list:ico]' != '/static/images/nopic.png')}
+							<div class="top">
+								<div class="img-box">
+									<img src="[list:ico]" alt="">
 								</div>
 							</div>
+							{/pboot:if}
+							<div class="bottom">
+								<div class="text-box">
+									<h4>[list:title]</h4>
+									<p>[list:content drophtml=1 dropblank=1 lencn=60]</p>
+								</div>
+							</div>
+							<a href="[list:link]">
+								<div class="newBtn">点击查看</div>
+							</a>
 						</div>
 					</div>
 					{/pboot:list}
-					<!-- <div class="col-lg-4 col-md-6">
-						<div class="single-blog-box">
-							<div class="single-blog-thumb">
-								<img src="static/picture/blog2.png" alt="">
-								<div class="blog-top-button">
-									<a href="#"> DEVELOPMENT </a>
-								</div>
-							</div>
-							<div class="em-blog-content">
-								<div class="meta-blog-text">
-									<p> August 21, 2023 </p>
-								</div>
-								<div class="em-blog-title">
-									<h2> <a href="blog-details.html"> How to Increase Business Products Sales </a> </h2>
-								</div>
-								<div class="em-blog-icon">
-									<div class="em-blog-thumb">
-										<img src="static/picture/blog-icon.png" alt="">
-									</div>
-									<div class="em-blog-icon-title">
-										<h6> Julia Moris </h6>
-									</div>
-								</div>
-								<div class="blog-button">
-									<a href="blog-details.html"> Learn More <i class="bi bi-plus"></i> </a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6">
-						<div class="single-blog-box">
-							<div class="single-blog-thumb">
-								<img src="static/picture/blog3.png" alt="">
-								<div class="blog-top-button">
-									<a href="#"> DESIGN </a>
-								</div>
-							</div>
-							<div class="em-blog-content">
-								<div class="meta-blog-text">
-									<p> August 20, 2023 </p>
-								</div>
-								<div class="em-blog-title">
-									<h2> <a href="blog-details.html"> Top 10 Most Populars Google Chrome app</a>
-									</h2>
-								</div>
-								<div class="em-blog-icon">
-									<div class="em-blog-thumb">
-										<img src="static/picture/blog-icon.png" alt="">
-									</div>
-									<div class="em-blog-icon-title">
-										<h6> Amantha </h6>
-									</div>
-								</div>
-								<div class="blog-button">
-									<a href="blog-details.html"> Learn More <i class="bi bi-plus"></i> </a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6">
-						<div class="single-blog-box">
-							<div class="single-blog-thumb">
-								<img src="static/picture/blog-sm-1.jpg" alt="">
-								<div class="blog-top-button">
-									<a href="#"> GRAPHIC </a>
-								</div>
-							</div>
-							<div class="em-blog-content">
-								<div class="meta-blog-text">
-									<p> August 25, 2023 </p>
-								</div>
-								<div class="em-blog-title">
-									<h2> <a href="blog-details.html"> Popular Consultants are big Meetup 2023 </a> </h2>
-								</div>
-								<div class="em-blog-icon">
-									<div class="em-blog-thumb">
-										<img src="static/picture/blog-icon.png" alt="">
-									</div>
-									<div class="em-blog-icon-title">
-										<h6> Alex Collins </h6>
-									</div>
-								</div>
-								<div class="blog-button">
-									<a href="blog-details.html"> Learn More <i class="bi bi-plus"></i> </a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6">
-						<div class="single-blog-box">
-							<div class="single-blog-thumb">
-								<img src="static/picture/blog-sm-2.jpg" alt="">
-								<div class="blog-top-button">
-									<a href="#"> DEVELOPMENT </a>
-								</div>
-							</div>
-							<div class="em-blog-content">
-								<div class="meta-blog-text">
-									<p> August 21, 2023 </p>
-								</div>
-								<div class="em-blog-title">
-									<h2> <a href="blog-details.html"> How to Increase Business Products Sales </a> </h2>
-								</div>
-								<div class="em-blog-icon">
-									<div class="em-blog-thumb">
-										<img src="static/picture/blog-icon.png" alt="">
-									</div>
-									<div class="em-blog-icon-title">
-										<h6> Julia Moris </h6>
-									</div>
-								</div>
-								<div class="blog-button">
-									<a href="blog-details.html"> Learn More <i class="bi bi-plus"></i> </a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6">
-						<div class="single-blog-box">
-							<div class="single-blog-thumb">
-								<img src="static/picture/blog-sm-1.jpg" alt="">
-								<div class="blog-top-button">
-									<a href="#"> DESIGN </a>
-								</div>
-							</div>
-							<div class="em-blog-content">
-								<div class="meta-blog-text">
-									<p> August 20, 2023 </p>
-								</div>
-								<div class="em-blog-title">
-									<h2> <a href="blog-details.html"> Top 10 Most Populars Google Chrome app</a>
-									</h2>
-								</div>
-								<div class="em-blog-icon">
-									<div class="em-blog-thumb">
-										<img src="static/picture/blog-icon.png" alt="">
-									</div>
-									<div class="em-blog-icon-title">
-										<h6> Amantha </h6>
-									</div>
-								</div>
-								<div class="blog-button">
-									<a href="blog-details.html"> Learn More <i class="bi bi-plus"></i> </a>
-								</div>
-							</div>
-						</div>
+					<!-- <div class="col-lg-4 grid-item">
 					</div> -->
-					<!-- <div class="col-12">
+				</div>
+				<!-- <div class="col-12">
   <div class="pagination justify-content-center mt-4">
     <a href="#" class="active">1</a>
     <a href="#">2</a>
@@ -329,7 +175,7 @@
   .page-num {
     font-size: 18px;
     font-weight: 500;
-    color: #FF3C00;
+    color: #232323;
     float: left;
     text-decoration: none;
     transition: background-color .3s;
@@ -344,13 +190,13 @@
 
   .page-num a:hover {
     color: #fff;
-    background-color: #FF3C00;
+    background-color: #232323;
   }
 
   .page-num-current {
     z-index: 1;
     color: #fff !important;
-    background-color: #FF3C00;
+    background-color: #232323;
     /* border-color: #36c95f8; */
   }
 </style>
@@ -369,16 +215,11 @@
   <div class="text-center my-5 text-secondary">未查询到任何数据！</div>
   {/pboot:if}
 </div>
-				</div>
+
 			</div>
 		</div>
 		<!--==================================================-->
-		<!-- End itpro Blog Area -->
-		<!--==================================================-->
-
-
-
-
+		<!-- End itpro case study Area -->
 		<!--==================================================-->
 		<!-- Start itpro Footer Middle Area -->
 		<!--==================================================-->
@@ -477,6 +318,10 @@
 		<script src="static/js/theme.js"></script>
 		<!-- barfiller -->
 		<script src="static/js/jquery.barfiller.js"></script>
+		<script src="static/js/masonry.min.js"></script>
+		<script src="static/js/active.js"></script>
+		<!-- 将字体转换为繁体 -->
+		<script src="static/js/jfzh.js"></script>
 	</body>
 
 </html><?php return array (
