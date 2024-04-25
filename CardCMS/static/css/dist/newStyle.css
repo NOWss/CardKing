@@ -121,12 +121,14 @@
   top: 171px;
   left: 46px;
   z-index: 3;
-  transition: all 1s;
 }
 .slider_right_site .right-card .card-1.active {
+  transition: all 1s ease-in-out;
+  transform: rotate(0deg);
+}
+.slider_right_site .right-card .card-1.active-1 {
   top: 70px;
   left: 10px;
-  transform: rotate(0deg);
   animation-duration: 6s;
 }
 .slider_right_site .right-card .card-2 {
@@ -136,9 +138,11 @@
   top: 160px;
   left: 40px;
   z-index: 2;
-  transition: all 1s;
 }
 .slider_right_site .right-card .card-2.active {
+  transition: all 1s ease-in-out;
+}
+.slider_right_site .right-card .card-2.active-1 {
   animation-duration: 8s;
 }
 .slider_right_site .right-card .card-3 {
@@ -149,12 +153,14 @@
   left: 47px;
   transform: rotate(-28deg);
   z-index: 1;
-  transition: all 1s;
 }
 .slider_right_site .right-card .card-3.active {
+  transform: rotate(0deg);
+  transition: all 1s ease-in-out;
+}
+.slider_right_site .right-card .card-3.active-1 {
   top: 190px;
   left: 170px;
-  transform: rotate(0deg);
   animation-duration: 10s;
 }
 .slider_bottom_site {

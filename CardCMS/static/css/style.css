@@ -6797,19 +6797,19 @@ span.fill {
 
 @keyframes float-bob {
     0% {
-        -webkit-transform: translateY(-30px);
-        transform: translateY(-30px);
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
         /* transition: all .2s; */
     }
 
     50% {
-        -webkit-transform: translateY(-15px);
-        transform: translateY(-15px);
+        -webkit-transform: translateY(-30px);
+        transform: translateY(-30px);
     }
 
     100% {
-        -webkit-transform: translateY(-30px);
-        transform: translateY(-30px);
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
     }
 }
 

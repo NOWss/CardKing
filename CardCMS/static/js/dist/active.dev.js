@@ -65,7 +65,10 @@ $(function () {
       if (isInViewport($sliderArea) && !$(site).hasClass('active')) {
         // setTimeout(() => {
         $(site).addClass('active');
-        $(site).addClass("bounce-animate"); // }, 1000);
+        setTimeout(function () {
+          $(site).addClass('active-1');
+          $(site).addClass("bounce-animate");
+        }, 1000); // }, 1000);
       }
     });
   }

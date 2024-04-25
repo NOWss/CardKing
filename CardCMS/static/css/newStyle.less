@@ -118,6 +118,8 @@
   position: relative;
   width: 340px;
   height: 80px;
+
+
 }
 
 .slider_btn {
@@ -160,12 +162,15 @@
       top: 171px;
       left: 46px;
       z-index: 3;
-      transition: all 1s;
 
       &.active {
+        transition: all 1s ease-in-out;
+        transform: rotate(0deg);
+      }
+
+      &.active-1 {
         top: 70px;
         left: 10px;
-        transform: rotate(0deg);
         animation-duration: 6s;
       }
 
@@ -179,9 +184,13 @@
       left: 40px;
       // transform: rotate(32deg);
       z-index: 2;
-      transition: all 1s;
+      // transition: all 1s;
 
       &.active {
+        transition: all 1s ease-in-out;
+      }
+
+      &.active-1 {
         animation-duration: 8s;
       }
 
@@ -195,13 +204,17 @@
       left: 47px;
       transform: rotate(-28deg);
       z-index: 1;
-      transition: all 1s;
 
       &.active {
+        transform: rotate(0deg);
+        transition: all 1s ease-in-out;
+      }
+
+      &.active-1 {
         top: 190px;
         left: 170px;
-        transform: rotate(0deg);
         animation-duration: 10s;
+
       }
     }
   }
