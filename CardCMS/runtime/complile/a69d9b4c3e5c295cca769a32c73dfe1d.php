@@ -127,9 +127,9 @@
 								</div>
 								<h1 style="font-size: 62px;">数字信用卡</h1>
 							</div>
-							<h2 style="font-size: 42px;font-weight: 500;margin-bottom: 20px; color: #000;">快捷，安全，方便<div>跨界消费首选</div>
+							<h2 style="font-size: 42px;font-weight: 500;margin-bottom: 20px; color: #000;">快捷，安全，方便<div>全球消费首选</div>
 							</h2>
-							<a href='https://admin.cardking.tw/'>
+							<a href="https://admin.cardking.tw/">
 								<div class="slider_btn">立即注册</div>
 							</a>
 						</div>
@@ -167,8 +167,8 @@
 								</div>
 								<div class="text-box">
 									<p>安全可靠</p>
-									<div>多方安全密钥保护</div>
-									<div>稳健到账</div>
+									<div>GooGle验证保护卡</div>
+									<div>信息安全</div>
 								</div>
 							</div>
 							<div class="item">
@@ -283,7 +283,12 @@
 				</div>
 				<div class="row" style="padding: 0px;">
 					<div class="owl-carousel" id="owl-demo">
+						{pboot:slide gid=1 num=6}
 						<div class="img-box" style="height: 500px;">
+							<img src="[slide:src]">
+						</div>
+						{/pboot:slide}
+						<!-- <div class="img-box" style="height: 500px;">
 							<img src="static/image/service-bg2.jpg">
 						</div>
 						<div class="img-box" style="height: 500px;">
@@ -297,10 +302,7 @@
 						</div>
 						<div class="img-box" style="height: 500px;">
 							<img src="static/image/service-bg2.jpg">
-						</div>
-						<div class="img-box" style="height: 500px;">
-							<img src="static/image/service-bg2.jpg">
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</div>
@@ -393,18 +395,18 @@
 					<div class="col-lg-12 pl-0 pr-0" style="position: relative;">
 						<div class="top">
 							<div class="yw-img1 yw-img img-box">
-								<img src="static/picture/blog3.png" alt="">
+								<img src="static/picture/pic2.png" alt="">
 							</div>
 							<div class="yw-img2 yw-img img-box">
-								<img src="static/picture/blog2.png" alt="">
+								<img src="static/picture/pic3.png" alt="">
 							</div>
 							<div class="yw-img3 yw-img img-box">
-								<img src="static/picture/blog1.png" alt="">
+								<img src="static/picture/pic4.png" alt="">
 							</div>
 						</div>
 						<div class="bigImg">
 							<div class="img-box">
-								<img src="static/picture/blog-4.jpg" alt="">
+								<img src="static/picture/pic1.png" alt="">
 							</div>
 						</div>
 						<div class="iconImg">
@@ -427,7 +429,7 @@
 								<i class="iconfont icon-tubiao_quanqiu"></i>
 								<span>全球8大国家服务器布局</span>
 							</div>
-							<a href='https://admin.cardking.tw/'>
+							<a href="https://admin.cardking.tw/">
 								<div class="btn">
 									立即注册
 								</div>
@@ -437,8 +439,6 @@
 				</div>
 			</div>
 		</div>
-
-
 		<!--==================================================-->
 		<!-- Start itpro case study Area -->
 		<!--==================================================-->
@@ -552,12 +552,13 @@
           <div style="color: #fff;">
             <div style="margin-bottom: 10px;">
               <i class="bi bi-clock-history"></i>
-              工作时间：9:00AM - 24:00 PM
+              工作时间：9:00AM - 04:00 AM
             </div>
-            <div>
-              <i class="bi bi-send"></i>
-              Telegram客服：@cardking
-            </div>
+            
+              <div>
+                <i class="bi bi-send"></i>
+                Telegram客服：<a href="https://t.me/cardking88">@cardking</a>
+              </div>
           </div>
         </div>
         <div class="col-md-4">
@@ -579,26 +580,20 @@
 		<!-- Start scrollup section Area -->
 		<!--==================================================-->
 		<!-- scrollup section -->
-		<!-- <div class="scroll-area">
+		<div class="scroll-area">
 			<div class="top-wrap">
 				<div class="go-top-btn-wraper">
-					<div class="sidebar-go-top">
-						<div class="top">
-							<div>
-								<i class="bi bi-arrow-up-square-fill"></i>
-								<p>返回顶部</p>
-							</div>
-						</div>
-						<div class="bottom">
+					<a href="https://t.me/cardking88">
+						<div class="sidebar-go-top">
 							<div>
 								<i class="bi bi-send-fill"></i>
 								<p>客服</p>
 							</div>
 						</div>
-					</div>
+					</a>
 				</div>
 			</div>
-		</div> -->
+		</div>
 
 		<div class="scroll-area">
 			<div class="top-wrap">

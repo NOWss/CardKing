@@ -18,7 +18,7 @@ $(function () {
   });
 
   // 自定义按钮内容
-  $('.owl-dots').each(function () {
+  $('.owl-dots').each(function () { 
     const dotsText = ['Chatgpt付費', 'PayPal支付', '社交軟件增值功能/廣告投放購買', 'Apple ID', '跨境購物', '跨境服務器購買']
     var dots = $(this).find('.owl-dot');
     dots.each(function (index) {

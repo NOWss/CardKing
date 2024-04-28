@@ -509,13 +509,12 @@
   color: #fff;
 }
 .scroll-area .sidebar-go-top {
-  height: 222px;
-  width: 85px;
+  height: 100px;
   background: #232323;
   color: #fff;
   position: fixed;
   cursor: pointer;
-  top: 80%;
+  top: 30%;
   transform: translateY(-50%);
   right: 0px;
   border-radius: 30px 0px 0px 30px;
@@ -528,7 +527,6 @@
 }
 .scroll-area .sidebar-go-top div {
   width: 100%;
-  height: 50%;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -541,6 +539,7 @@
 }
 .scroll-area .sidebar-go-top div * {
   width: 100%;
+  height: 50%;
 }
 .service_area .area-left .service_left_site {
   opacity: 0;
