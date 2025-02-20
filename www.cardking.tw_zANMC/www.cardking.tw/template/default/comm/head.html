@@ -1,0 +1,97 @@
+<style>
+    .btn_group {
+        position:absolute;
+        top:44px;
+        left:85%
+    }
+    .sticky .btn_group {
+        top: 32px;
+    }
+    
+    .btn_group > div {
+        border: 2px solid #fff;
+        border-radius: 20px;
+        display: flex;
+        overflow: hidden;
+    }
+    .btn_group a {
+        padding: 0px 22px;
+        color: #fff;
+        font-size: 14px;
+    }
+            .btn_group a:first-child {
+                background: #fff;
+                color:#2e2e2e;
+            }
+            
+    .sticky .btn_group > div {
+        border: 2px solid #2e2e2e;
+        border-radius: 20px;
+        display: flex;
+        overflow: hidden;
+    }
+    .sticky .btn_group a {
+        padding: 0px 22px;
+        color: #2e2e2e;
+        font-size: 14px;
+    }
+    .sticky  .btn_group a:first-child {
+                background: #2e2e2e;
+                color:#fff;
+            }
+    @media (max-width: 991.98px) {
+        .btn_group {
+            display:none;
+        }
+    }
+</style>
+<header class="header"> 
+  <!-- Start Header Navbar-->
+  <div class="main-header">
+    <div class="main-menu-wrap">
+      <div class="container" style="width:1012px">
+        <div class="row align-items-center">
+          <div class="col-xl-3 col-lg-3 col-md-4 col-6"> 
+            <!-- Logo -->
+            <div class="logo"> <a href="{pboot:sitedomain}/"> <img src="{pboot:sitelogo}" data-rjs="2" alt=""> </a> </div>
+            <!-- End of Logo --> 
+          </div>
+          <div class="col-xl-8 col-lg-8 col-md-4 col-6 menu-button">
+            <div class="menu--inner-area clearfix">
+              <div class="menu-wraper">
+                <nav> 
+                  <!-- Header-menu -->
+                  <div class="header-menu dosis">
+                    <ul>
+                      <li {pboot:if(0=='{sort:scode}')}class='active'{/pboot:if}><a href="{pboot:sitedomain}/">首页</a></li>
+                      <li><a href="{pboot:sitedomain}/#features">优势</a></li>
+                      <li><a href="{pboot:sitedomain}/#app">支持平台</a></li>
+                    {pboot:nav num=10 parent=0}
+                      <li class=""><a href="[nav:link]">[nav:name]</a>
+                        {pboot:if([nav:soncount]>0)}
+						 <ul>
+                           {pboot:2nav parent=[nav:scode]}
+                          <li><a href='[2nav:link]'>[2nav:name]</a></li>
+             			  {/pboot:2nav}
+                        </ul>{/pboot:if} 
+                      </li>
+                     {/pboot:nav}
+                    </ul>
+                  </div>
+                </nav>
+              </div>
+            </div>
+          </div>
+            <div class="btn_group">
+                <div>
+                    <a href="https://vip.okla.app/index.html#/regist" target="_blank">注册</a>
+                    <a href="https://vip.okla.app/index.html#/login" target="_blank">登录</a>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Header Navbar--> 
+</header>
+  
