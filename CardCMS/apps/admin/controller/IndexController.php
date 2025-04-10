@@ -16,6 +16,58 @@ class IndexController extends Controller
 
     private $model;
 
+     public function bindTotp()
+     {
+        // 使用账号+密码动态生成 secret（不存数据库）
+        $username = session('username');
+
+        $indexModel = new IndexModel();
+        $qrCodeUrl = $indexModel->bindTotp($username);
+
+        // 渲染模板
+        $this->assign('qr', $qrCodeUrl);
+        return $this->display('bind-totp.html');
+     }
+
+     public function HandleAuthener()
+     {
+
+        if (! $_POST) {
+           return;
+        }
+        require_once ROOT_PATH . '/core/plugin/totp/lib/GoogleAuthenticator.php';
+        $ga = new \PHPGangsta_GoogleAuthenticator();
+
+        $username = session('username');
+
+        $validCode = post('validCode');
+
+        $indexModel = new IndexModel();
+
+        $user = $indexModel->HandleUser($username);
+
+        // 使用用户名 + 加密密码作为生成 secret 的原材料
+        $seed = $username . ':' . $user->password; // 你可以用其他分隔符
+        $secret = substr($indexModel->base32_encode(hash_hmac('sha1', $seed, 'CardKing', true)), 0, 16);
+
+        $check = $ga->verifyCode($secret, $validCode, 2);
+
+        // 判断数据库写入权限
+        if ((get_db_type() == 'sqlite') && ! is_writable(ROOT_PATH . $this->config('database.dbname'))) {
+            json(0, '数据库目录写入权限不足！');
+        }
+
+        if (!$check) {
+           json(201, '谷歌验证码错误');
+        }
+        else{
+            $indexModel->SaveAuthener($username,$secret);
+            $this->log('绑定成功!');
+            json(1, url('admin/Index/home'));
+        }
+     }
+
+
     public function __construct()
     {
         $this->model = new IndexModel();
@@ -90,6 +142,8 @@ class IndexController extends Controller
         }
         
         $this->assign('model_msg', $models);
+
+        $this->assign('news_count', $model->getModelDayCount(2)->count);
         $this->display('system/home.html');
     }
 
@@ -101,9 +155,9 @@ class IndexController extends Controller
         }
         
         // 在安装了gd库时才执行验证码验证
-        if (extension_loaded("gd") && $this->config('admin_check_code') && strtolower(post('checkcode', 'var')) != session('checkcode')) {
-            json(0, '验证码错误！');
-        }
+//         if (extension_loaded("gd") && $this->config('admin_check_code') && strtolower(post('checkcode', 'var')) != session('checkcode')) {
+//             json(0, '验证码错误！');
+//         }
         
         // 就收数据
         $username = post('username');

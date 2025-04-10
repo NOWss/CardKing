@@ -24,7 +24,7 @@ class SitemapController extends Controller
 
     public function index()
     {
-        header("Content-type:text/xml;charset=utf-8");
+        header("Content-Type: application/xml; charset=utf-8");
         $str = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
         $str .= '<urlset>' . "\n";
         $str .= $this->makeNode('', date('Y-m-d'), '1.00', 'always'); // 根目录

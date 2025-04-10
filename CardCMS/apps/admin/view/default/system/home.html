@@ -37,7 +37,9 @@
 		    		{/if}
 			      		<dl class="deskbox center-block">
 			      			 <dt>[value->name]</dt>
-		                     <dd>[value->count]</dd>
+		                     <dd>
+													 [value->count]{if($value->name=='XONE官方新闻')}/{$news_count}{/if}
+												 </dd>
 		                 </dl>
 		             </a>
 		   	    </div>

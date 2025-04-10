@@ -13,16 +13,93 @@ use core\basic\Model;
 class IndexModel extends Model
 {
 
+    public function bindTotp($username)
+    {
+        require_once ROOT_PATH . '/core/plugin/totp/lib/GoogleAuthenticator.php';
+
+        // 查询用户
+        $user = parent::table('ay_user')
+            ->where("username='$username'")
+            ->where('status=1')
+            ->find();
+
+        if (!$user) {
+            return '用户不存在';
+        }
+
+        $indexModel = new IndexModel();
+
+        // 使用用户名 + 加密密码作为生成 secret 的原材料
+        $seed = $username . ':' . $user->password; // 你可以用其他分隔符
+        $secret = substr($indexModel->base32_encode(hash_hmac('sha1', $seed, 'CardKing', true)), 0, 16);
+
+        // 生成二维码
+        $ga = new \PHPGangsta_GoogleAuthenticator();
+        $qrCodeUrl = $ga->getQRCodeGoogleUrl('CardKingPbootCMS-' . $user->username, $secret);
+
+        return $qrCodeUrl;
+    }
+
+
+    public function base32_encode($data)
+    {
+        $alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567';
+        $binary = '';
+        foreach (str_split($data) as $char) {
+            $binary .= str_pad(decbin(ord($char)), 8, '0', STR_PAD_LEFT);
+        }
+
+        $fiveBitBinaryArray = str_split($binary, 5);
+        $base32 = '';
+        foreach ($fiveBitBinaryArray as $bin) {
+            $base32 .= $alphabet[bindec(str_pad($bin, 5, '0'))];
+        }
+
+        return $base32;
+    }
+
+    public function HandleUser($username)
+    {
+         $user = parent::table('ay_user')
+                            ->where("username='$username'")
+                            ->where('status=1')
+                            ->find();
+         return $user;
+    }
+
+    // 保存 secret
+    public function SaveAuthener($username,$secret)
+    {
+        parent::table('ay_user')
+            ->where("username='$username'")
+            ->update(['google_code' => $secret]);
+    }
+
     // 检查用户账号密码
     public function login($where)
     {
         // 执行登录
-        $result = parent::table('ay_user')->field('id,ucode,username,realname')
+        $result = parent::table('ay_user')->field('id,ucode,username,realname,google_code')
             ->where($where)
             ->where('status=1')
             ->find();
-        
         if ($result) { // 登录成功
+            // 判断验证码是否存在
+            $inputCode = post('qrcode'); // 登录页面输入的验证码
+
+            if (!empty($result->google_code)) {
+                require_once ROOT_PATH . '/core/plugin/totp/lib/GoogleAuthenticator.php';
+                $ga = new \PHPGangsta_GoogleAuthenticator();
+
+                 $indexModel = new IndexModel();
+
+                 $secret = $result->google_code;
+
+                 $check = $ga->verifyCode($secret, $inputCode, 1);
+                 if (!$check) {
+                    json(201, '谷歌验证码错误');
+                 }
+            }
             $this->updateLogin($where); // 执行更新登录记录
             $menus = $this->getUserMenu($result->ucode); // 用户菜单
             $result->menus = get_tree($menus, 0, 'mcode', 'pcode'); // 用户菜单树
@@ -211,6 +288,9 @@ class IndexModel extends Model
     // 修改当前用户信息
     public function modUserInfo($data)
     {
+        // ✅ 清除绑定的 Google 验证器
+        $username = session('username');
+        parent::table('ay_user')->where("username='$username'")->update(['google_code' => null]);
         return parent::table('ay_user')->where("id=" . session('id'))->update($data);
     }
 

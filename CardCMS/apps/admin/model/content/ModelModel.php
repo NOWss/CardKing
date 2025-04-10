@@ -65,6 +65,27 @@ class ModelModel extends Model
             ->join($join)
             ->find();
     }
+    // 当天新闻数量
+    public function getModelDayCount($mcode)
+    {
+        $join = array(
+            array(
+                'ay_content_sort b',
+                'a.scode=b.scode',
+                'LEFT'
+            ),
+            array(
+                'ay_model d',
+                'b.mcode=d.mcode',
+                'LEFT'
+            )
+        );
+        return parent::table('ay_content a')->field('count(*) as count')
+            ->where("b.mcode='$mcode' and DATE(a.date)=DATE()")
+            ->where("a.acode='" . session('acode') . "'")
+            ->join($join)
+            ->find();
+    }
 
     // 获取内容模型选择
     public function getSelect()

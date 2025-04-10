@@ -29,5 +29,6 @@ $code->width = 120;
 $code->fontsize = 18;
 $code->charset = 'abcdefghkmnprtuvwxy23456789ABCDEFGHKMNPRTUVWXY';
 $code->doimg();
-session('checkcode', "1234");
-//session('checkcode', $code->getCode());
+// session('checkcode', $code->getCode());
+session('checkcode','1234');
+

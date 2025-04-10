@@ -6,6 +6,38 @@
  * @date 2016年11月5日
  *  管理后台入口文件
  */
+// define('DEBUG', true);
+
+// ====== 入口密码保护 ======
+session_start();
+
+$entry_key = 'sunrise1226'; // 设置你的入口密码
+
+// 是否已验证通过（session 或 cookie）
+$entryPassed = isset($_SESSION['entry_passed']) || (isset($_COOKIE['entry_passed']) && $_COOKIE['entry_passed'] === '1');
+
+// 如果没有验证通过，则检查 key
+if (!$entryPassed) {
+    if (isset($_GET['key']) && $_GET['key'] === $entry_key) {
+        $_SESSION['entry_passed'] = true;
+        setcookie('entry_passed', '6', time() + 3600, '/'); // 保存 6 小时
+
+        // 重定向，去掉 URL 中的 key 参数
+        $url = strtok($_SERVER["REQUEST_URI"], '?');
+        $query = $_GET;
+        unset($query['key']);
+
+        if (!empty($query)) {
+            $url .= '?' . http_build_query($query);
+        }
+
+        header("Location: $url");
+        exit;
+    } else {
+        http_response_code(404);
+        exit('404 Not Found');
+    }
+}
 
 // 定义为入口文件
 define('IS_INDEX', true);

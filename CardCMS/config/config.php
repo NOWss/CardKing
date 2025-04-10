@@ -1,11 +1,11 @@
 <?php
 return array(
-    
+
     // 定义CMS名称
     'cmsname' => 'PbootCMS',
     
     // 授权码，多个授权码使用英文逗号隔开，如：'aaaaa,bbbbb'
-    'sn' => 'F7DC810657,4386052E4C',
+    'sn' => '506CB21CE7,EA66D06F65',
     
     // 授权用户手机
     'sn_user' => '',
@@ -24,7 +24,9 @@ return array(
     
     // 分页条数字数量
     'pagenum' => 5,
-    
+
+//     'admin_check_code' => 0,
+
     // 访问页面规则，如禁用浏览器、操作系统类型
     'access_rule' => array(
         'deny_bs' => 'MJ12bot,IE6,IE7'
