@@ -8155,7 +8155,7 @@ element.style {
     width: 100%;
 }
 
-.blog-section .blog-content-text h5 {
+.blog-section .blog-content-text h1 {
     font-size: 35px;
     font-weight: 600;
 }
@@ -8192,8 +8192,8 @@ element.style {
     padding-left: 15px;
 }
 
-.blog-section .blog-content h4 {
-    font-size: 22px;
+.blog-section .blog-content h2 {
+    font-size: 22px !important;
     margin: 25px 0 12px;
     font-weight: 600;
 }
