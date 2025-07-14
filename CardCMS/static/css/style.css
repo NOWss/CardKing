@@ -8193,9 +8193,15 @@ element.style {
 }
 
 .blog-section .blog-content h2 {
-    font-size: 22px !important;
+    font-size: 30px !important;
     margin: 25px 0 12px;
     font-weight: 600;
+}
+
+.blog-section .blog-content h3 {
+    font-size: 22px !important;
+    /*margin: 25px 0 12px;*/
+    /*font-weight: 600;*/
 }
 
 /*blog social*/
